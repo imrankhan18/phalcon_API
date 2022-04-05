@@ -1,0 +1,50 @@
+<?php
+// echo "<pre>";
+// print_r($data);
+// echo "</pre>";
+//  die;
+if(isset($data)) {
+    $disp='';
+    $disp .= "<h1 style=''>Single book details</h2>";
+    $google = $data->details->identifiers->google[0];
+    // print_r($google);
+    echo $google;
+    // die;
+    {
+        $disp .= "<div class='col-8'>
+        <div class='card shadow-sm'>
+            <img src='".$data->thumbnail_url."' alt='pic'  width='35%'  height='50%'>
+          <div class='card-body'>
+          
+              <a href=''>Title:<strong>" .$data->details->title. "</strong></a>
+            <p class='card-text'>by <strong>" .$data->details->authors[0]->name . "</strong></p>
+            <div class='d-flex justify-content-between align-items-center'>
+              <p name='' >No of pages- <strong>" .$data->details->number_of_pages. "</strong>&nbsp;</p>
+            </div>
+            <div class='d-flex justify-content-between align-items-center'>
+              <p>Revision:<strong>" .$data->details->latest_revision."</strong>&nbsp;</p>
+              </div>
+              <div>
+              <p>Publish Places:<strong>"  .$data->details->publish_places[0]. "</strong>&nbsp;</p>
+              
+            </div>
+            <div>
+            <p>Languages:<strong>"  .$data->details->languages[0]->key. "</strong>&nbsp;</p>
+            
+          </div>
+         <a href='https://www.google.co.in/books/edition/Slow_reading/".$google."?hl=en'> Google</a>
+        
+        </div>
+      </div>
+      </div>";
+
+    }
+   
+
+
+    echo $disp;
+
+}
+
+
+?>
